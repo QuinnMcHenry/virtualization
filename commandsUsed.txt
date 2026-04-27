@@ -1,0 +1,50 @@
+commands used for Lab5. commands prefixed by '--' and followed by the output.
+
+PART 1:
+
+-- dd if=/dev/zero of=vm1.img bs=1M count=20
+
+20+0 records in
+20+0 records out
+20971520 bytes (21 MB, 20 MiB) copied, 0.00530396 s, 4.0 GB/s
+
+-- mkfs.ext3 vm1.img
+
+mke2fs 1.47.0 (5-Feb-2023)
+Discarding device blocks: done                            
+Creating filesystem with 5120 4k blocks and 5120 inodes
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+-- ... and the same for /mnt/vm2 and /mnt/vm3.
+
+PART 2:
+
+[see vms.c]
+
+-- chmod -R 777 /mnt/vm1 /mnt/vm2 /mnt/vm3
+
+-- ./vms.c
+
+Parent: 9260
+Child: 9261
+Child 9261 wrote to /mnt/vm1/hello.txt
+Child 9261 reading from /mnt/vm1/hello.txt: Hello!
+Parent: 9260
+Child: 9262
+Child 9262 wrote to /mnt/vm2/hello.txt
+Child 9262 reading from /mnt/vm2/hello.txt: Hello!
+Parent: 9260
+Child: 9263
+Child 9263 wrote to /mnt/vm3/hello.txt
+Child 9263 reading from /mnt/vm3/hello.txt: Hello!
+
+
+PART 3:
+
+
+
+
