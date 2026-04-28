@@ -3,6 +3,13 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <signal.h>
+
+pid_t vm2_pid = -1;
+
+void handler(int sig) {
+  printf("VM2 has received the signal from VM1 \n");
+}
 
 int checkAllowed(int vmNum, char* path) //vmNum is i+1
 {
