@@ -32,12 +32,27 @@ int main() {
         snprintf(filepath, sizeof(filepath), "/mnt/vm%d/hello.txt", i+1);
         
         char buffer[7]; // buffer to store read
-
+        
         pid_t pid = fork();
 
         if (pid == 0) // is a child
         {
             printf("Child: %d (vm%d)\n", getpid(), i+1);
+
+            // If VM2 then set signal use handler function
+            if (i == 1) {
+              vm2_pid = getpit();
+              signal(SIGUSR1, handler);
+              printf("VM2 waiting to receive signal \n");
+            }
+
+            sleep(1); // buffer for VM2 to set up 
+
+            if (i == 0) {
+              printf("VM1 sending signal to VM2 \n");
+              kill(vm2_pid, SIGUSR1);
+            }
+
             if (checkAllowed(i+1, filepath)) { // check if this child allowed 
 
                 FILE *fptr = fopen(filepath, "w"); // create
