@@ -47,4 +47,37 @@ PART 3:
 
 
 
+PART 4:
 
+-gcc vms.c -o vms
+
+-/.vms
+Parent: 249248
+Parent: 249248
+Child: 249249 (vm1)
+Child: 249250 (vm2)
+Parent: 249248
+Child: 249251 (vm3)
+VM2 waiting to receive signal
+Access allowed for vm3 to /mnt/vm3/hello.txt
+Child 249251 wrote to /mnt/vm3/hello.txt
+Child 249251 reading from /mnt/vm3/hello.txt: Hello!
+VM1 sending signal to VM2
+Access allowed for vm1 to /mnt/vm1/hello.txt
+VM2 has received the signal from VM1
+Access allowed for vm2 to /mnt/vm2/hello.txt
+Child 249249 wrote to /mnt/vm1/hello.txt
+Child 249250 wrote to /mnt/vm2/hello.txt
+Child 249250 reading from /mnt/vm2/hello.txt: Hello!
+Child 249249 reading from /mnt/vm1/hello.txt: Hello!
+Denied, vm3 cannot access /mnt/vm1/hello.txt
+Denied, vm2 cannot access /mnt/vm3/hello.txt
+Denied, vm1 cannot access /mnt/vm2/hello.txt
+
+PART 5: 
+
+ps -a
+kill -9 252963
+
+PART 6: 
+~/virtualization main* ⇡ ❯ umount /mnt/vm1                                                                     17m 40s 20:2~/virtualization main* ⇡ ❯ umount /mnt/vm2                                                                             20:27:~/virtualization main* ⇡ ❯ umount /mnt/vm3                                                                             20:28
