@@ -41,7 +41,7 @@ int main() {
 
             // If VM2 then set signal use handler function
             if (i == 1) {
-              vm2_pid = getpit();
+              vm2_pid = getpid();
               signal(SIGUSR1, handler);
               printf("VM2 waiting to receive signal \n");
             }
