@@ -1,0 +1,3 @@
+1. A VM is independent because it is a child process that is forked. They are their own processes which allows them to be isolated from eachother
+2. They use signals and memory to send messages to each other
+3. When one VM is destroyed the other child processes can continute on without it out due to their independence. That process is destroyed and its resources are freed. 
