@@ -45,6 +45,26 @@ Child 9263 reading from /mnt/vm3/hello.txt: Hello!
 
 PART 3:
 
+Parent: 305154
+Child: 305155 (vm1)
+Access allowed for vm1 to /mnt/vm1/hello.txt
+Child 305155 wrote to /mnt/vm1/hello.txt
+Child 305155 reading from /mnt/vm1/hello.txt: Hello!
+Denied, vm1 cannot access /mnt/vm2/hello.txt
+Parent: 305154
+Child: 305156 (vm2)
+Access allowed for vm2 to /mnt/vm2/hello.txt
+Child 305156 wrote to /mnt/vm2/hello.txt
+Child 305156 reading from /mnt/vm2/hello.txt: Hello!
+Denied, vm2 cannot access /mnt/vm3/hello.txt
+Parent: 305154
+Child: 305157 (vm3)
+Access allowed for vm3 to /mnt/vm3/hello.txt
+Child 305157 wrote to /mnt/vm3/hello.txt
+Child 305157 reading from /mnt/vm3/hello.txt: Hello!
+Denied, vm3 cannot access /mnt/vm1/hello.txt
+
+
 
 
 PART 4:
